@@ -13,8 +13,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var billField: UITextField!
     
     @IBOutlet weak var tipControl: UISegmentedControl!
-    @IBOutlet weak var tipLabel: UITextField!
     
+    
+    @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var tipSwitch: UISwitch!
     @IBOutlet weak var totalLabel: UILabel!
     override func viewDidLoad() {
@@ -32,22 +33,10 @@ class ViewController: UIViewController {
         view.endEditing(true)
     }
     @IBAction func calculateTip(_ sender: Any) {
-        let tipPercentages = [0.18, 0.20, 0.25]
-        
-        let bill = Double(billField.text!) ?? 0
-        let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
-        let total = bill + tip
-        tipLabel.text=String(format: "%.2f", tip)
-        totalLabel.text=String(format: "$%.2f", total)
+        calculate()
     }
     @IBAction func onBillChanged(_ sender: Any) {
-        let tipPercentages = [0.18, 0.20, 0.25]
-        
-        let bill = Double(billField.text!) ?? 0
-        let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
-        let total = bill + tip
-        tipLabel.text=String(format: "%.2f", tip)
-        totalLabel.text=String(format: "$%.2f", total)
+        calculate()
     }
 
     @IBAction func onchangeTip(_ sender: Any) {
@@ -55,10 +44,10 @@ class ViewController: UIViewController {
         //UISegmentedControl.accessibilityElementsHidden()
         if(tipSwitch.isOn){
             self.tipControl.isHidden = true;
-            self.tipLabel.isEnabled = true;
+            //self.tipLabel.isEnabled = true;
         }else{
             self.tipControl.isHidden = false;
-            self.tipLabel.isEnabled = false;
+            //self.tipLabel.isEnabled = false;
         }
         
     }
@@ -66,13 +55,18 @@ class ViewController: UIViewController {
     @IBAction func onEditCustomTip(_ sender: Any) {
         self.tipLabel.isEnabled = true;
         print("inside")
+        calculate()
+    }
+    
+    func calculate() -> Void {
         let tipPercentages = [0.18, 0.20, 0.25]
         
         let bill = Double(billField.text!) ?? 0
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
         let total = bill + tip
-        tipLabel.text=String(format: "%.2f", tip)
+        tipLabel.text=String(format: "$%.2f", tip)
         totalLabel.text=String(format: "$%.2f", total)
+        
     }
 
 }
