@@ -1,11 +1,11 @@
 # TipCalculator
 
 
-**Tip Calculatoe ** is a basic ios app that helps to calculate tip
+Tip Calculator  is a basic ios app that helps to calculate tip
 
 Submitted by: **Vivin Rajagopalan**
 
-Time spent: **X** hours spent in total
+Time spent: **4** hours spent in total
 
 ## User Stories
 
@@ -20,4 +20,4 @@ The following **optional** features are implemented:
 * [ N] Using locale-specific currency and currency thousands separators.
 * [ N] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
 
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
